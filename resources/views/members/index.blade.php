@@ -24,6 +24,7 @@
                         <th>Address</th>
                         <th>State</th>
                         <th>Phone</th>
+                        <th>Image</th>
                         <th>Division</th>
                         <th>Created</th>
                     <th>Actions</th>
@@ -64,6 +65,10 @@
                         </td>
                         <td class="table-text">
                             <div>{{ $member->phone }}</div>
+                        </td>
+                        <td class="table-text">
+                            <img src='/member/{{ $member->id }}/image'/></td>
+                            <!-- <img src="data:image/jpeg;base64;{{$member->image}}"/> -->
                         </td>
                         <td class="table-text">
                             <div>{{ $member->division->name }}</div>

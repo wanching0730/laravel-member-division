@@ -13,11 +13,13 @@
 
 Auth::routes();
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'DivisionController@index')->name('/');
+
+Route::get('/home', 'DivisionController@index')->name('home');
 
 Route::get('/division/create', 'DivisionController@create')->name('division.create');
 Route::post('/division/store', 'DivisionController@store')->name('division.store');
@@ -35,3 +37,4 @@ Route::get('/member/{id}', 'MemberController@show')->name('member.show');
 Route::get('/member/edit/{id}', 'MemberController@edit')->name('member.edit');
 Route::post('/member/update/{id}', 'MemberController@update')->name('member.update');
 Route::delete('member/{id}', 'MemberController@destroy')->name('member.destroy');
+Route::get('member/{id}/image', 'MemberController@image');

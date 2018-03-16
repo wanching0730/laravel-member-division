@@ -1,6 +1,39 @@
 @extends('layouts.app')
 
 @section('content')
+<?php 
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
+
+  //Create connection
+  $GLOBALS['conn'] = new mysqli($servername, $username, $password);
+
+  //Check connection
+  if($GLOBALS['conn']->connect_error) {
+    die("Connection failed: " . $GLOBALS['conn']->connect_error);
+  }
+
+  echo "Connected successfully";
+
+		mysqli_select_db($GLOBALS['conn'],"firstdb");
+
+    echo "Entered DB";
+
+    $sql = "SELECT * FROM divisions";
+    $result = $GLOBALS['conn']->query($sql);
+    var_dump($result);
+
+    if($result->num_rows > 0) {
+      while($row = $result->fetch_assoc()) {
+      	echo "name: " .$row['name']. " Address: " .$row['address']. "<br>";
+      }
+    } else {
+      echo "0 result found";
+    }
+
+  ?>
+
 <style>
 #mydiv {
   position: fixed;

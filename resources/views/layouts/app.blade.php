@@ -19,7 +19,7 @@
     <style>
         body {
             font-family: "Lato", sans-serif;
-            background-color: lightblue;
+            background-color: white;
         }
 
         .sidenav {

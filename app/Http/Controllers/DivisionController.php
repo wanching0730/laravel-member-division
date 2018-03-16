@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Division;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\Auth;
 
 class DivisionController extends Controller
 {
@@ -30,11 +31,23 @@ class DivisionController extends Controller
      */
     public function store(Request $request)
     {
-        $division = new Division;
-        $division->fill($request->all());
-        $division->save();
+        if(Auth::check()) {
+            $this->validate($request, [
+                'code' => 'required',
+                'name' => 'required',
+                'address' => 'required',
+                'postcode' => 'required'
+            ]);
 
-        return redirect()->route('division.index');
+            $division = new Division;
+            $division->fill($request->all());
+            $division->save();
+
+            return redirect()->route('division.index')
+                ->with('success', 'Division was added successfully');
+        } 
+
+        return redirect()->route('division.index')->with('error', 'Error in adding new division');
 
     }
 

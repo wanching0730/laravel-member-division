@@ -97,6 +97,24 @@ use App\Common;
         </div>
     </div>
 
+    @if($divisions != null)
+                <div class="form-group row">
+                    <div class="control-label col-sm-3">
+                        <label for="doctor_id">Division Name</label>
+                    </div>
+
+                    <div class="col-sm-9">
+                        <select name="division_id" class="form-control" placeholder="- Select Division -"> 
+
+                            @foreach($divisions as $division)
+                                <option value="{{$division->id}}"> {{$division->name}} </option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                </div>
+            @endif
+
     <div class="form-group row">
         <div class="col-sm-offset-3 col-sm-6">
             {!! Form::button('Save', [

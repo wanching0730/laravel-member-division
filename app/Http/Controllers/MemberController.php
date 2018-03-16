@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Member;
 use App\Division;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class MemberController extends Controller
@@ -31,11 +32,25 @@ class MemberController extends Controller
 
     public function store(Request $request)
     {
-        $member = new Member;
-        $member->fill($request->all());
-        $member->save();
-        
-        return redirect()->route('member.index');
+        if(Auth::check()) {
+
+            $this->validate($request, [
+                'membership_no' => 'required|numeric|digits:10',
+                'nric' => 'required',
+                'name' => 'required',
+                'gender' => 'required',
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            ]);
+
+            $member = new Member;
+            $member->fill($request->all());
+            $member->save();
+            
+            return redirect()->route('member.index')
+                    ->with('success', 'Member was added successfully');
+        }
+
+        return redirect()->route('member.index')->with('error', 'Error in adding new member');
     }
 
     public function show($id)
@@ -50,10 +65,13 @@ class MemberController extends Controller
     public function edit($id)
     {
         $member = Member::find($id);
+        $divisions = Division::orderBy('name', 'asc')->get();
+        $division_name = Division::find($member->division_id)->name;
+        
         if(!$member)
             throw new ModelNotFoundException;
 
-        return view('members.edit', ['member' => $member]);
+        return view('members.edit', ['member' => $member, 'divisions' => $divisions, 'division_name' => $division_name]);
     }
 
     public function update(Request $request, $id)
@@ -75,5 +93,17 @@ class MemberController extends Controller
             return redirect()->route('member.index')
             ->with('success', 'Member was deleted successfully');
         }
+    }
+
+
+    public function image($id){
+        $member = Member::find($id);
+
+        $pic = Image::make($member->image);
+        $response = Response::make($pic->encode('jpeg'));
+        $response->header('Content-Type','image/jpeg');
+
+        return $response;
+
     }
 }

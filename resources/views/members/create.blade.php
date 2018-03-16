@@ -18,7 +18,8 @@ use App\Common;
 
             {!! Form::model($member, [
                 'route' => ['member.store'],
-                'class' => 'form-horizontal'])
+                'class' => 'form-horizontal',
+                'enctype' => 'multipart/form-data'])
             !!}
 
             <div class="form-group row">
@@ -102,6 +103,16 @@ use App\Common;
                         'maxlength' => 11,
                     ]) !!}
                 </div>
+            </div>
+
+            <div class="form-group row">
+                {!! Form::label('member-photo', 'Photo', [
+                        'class' => 'control-label col-sm-3',
+                    ]) !!}
+
+            <div class="col-sm-9">
+                {!! Form::file('image', array('class' => 'image')) !!}
+             </div>
             </div>
 
             <div class="form-group row">

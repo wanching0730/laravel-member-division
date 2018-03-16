@@ -14,6 +14,7 @@ class Member extends Model
         'address',
         'state',
         'phone', 
+        'image',
         'division_id'
     ];
 
