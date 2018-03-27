@@ -14,4 +14,9 @@ class Common
         '07' => 'Negeri Sembilan',
         '08' => 'Penang',
     ];
+
+    public static $genders = [
+        '01' => 'Male',
+        '02' => 'Female'
+    ];
 }

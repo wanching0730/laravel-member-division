@@ -70,11 +70,9 @@ use App\Common;
                 ]) !!}
 
                 <div class="col-sm-9">
-                    {!! Form::text('gender', null, [
-                        'id' => 'member-gender',
-                        'class' => 'form-control',
-                        'maxlength' => 1,
-                    ]) !!}
+                    @foreach(Common::$genders as $key => $val)
+                        {!! Form::radio('gender', $key) !!} {{$val}}
+                    @endforeach
                 </div>
             </div>
 
