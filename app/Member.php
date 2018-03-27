@@ -24,4 +24,9 @@ class Member extends Model
     {
         return $this->belongsTo('App\Division');
     }
+
+    public function groups() 
+    {
+        return $this->belongsToMany('App\Group');
+    }
 }
