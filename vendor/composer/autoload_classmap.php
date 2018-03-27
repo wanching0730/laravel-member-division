@@ -47,6 +47,7 @@ return array(
     'Collective\\Html\\HtmlFacade' => $vendorDir . '/laravelcollective/html/src/HtmlFacade.php',
     'Collective\\Html\\HtmlServiceProvider' => $vendorDir . '/laravelcollective/html/src/HtmlServiceProvider.php',
     'CreateDivisionsTable' => $baseDir . '/database/migrations/2018_03_09_053056_create_divisions_table.php',
+    'CreateGroupMemberTable' => $baseDir . '/database/migrations/2018_03_27_173516_create_group_member_table.php',
     'CreateGroupsTable' => $baseDir . '/database/migrations/2018_03_27_173003_create_groups_table.php',
     'CreateMembersTable' => $baseDir . '/database/migrations/2018_03_09_054003_create_members_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',

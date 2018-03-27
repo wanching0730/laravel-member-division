@@ -343,6 +343,7 @@ class ComposerStaticInit035b56f1fc222e0d513087e7e7d2ab44
         'Collective\\Html\\HtmlFacade' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlFacade.php',
         'Collective\\Html\\HtmlServiceProvider' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlServiceProvider.php',
         'CreateDivisionsTable' => __DIR__ . '/../..' . '/database/migrations/2018_03_09_053056_create_divisions_table.php',
+        'CreateGroupMemberTable' => __DIR__ . '/../..' . '/database/migrations/2018_03_27_173516_create_group_member_table.php',
         'CreateGroupsTable' => __DIR__ . '/../..' . '/database/migrations/2018_03_27_173003_create_groups_table.php',
         'CreateMembersTable' => __DIR__ . '/../..' . '/database/migrations/2018_03_09_054003_create_members_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
