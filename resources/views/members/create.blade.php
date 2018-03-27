@@ -92,6 +92,20 @@ use App\Common;
             </div>
 
             <div class="form-group row">
+                {!! Form::label('member-postcode', 'Postcode', [
+                    'class' => 'control-label col-sm-3',
+                ]) !!}
+
+                <div class="col-sm-9">
+                    {!! Form::text('postcode', null, [
+                        'id' => 'member-postcode',
+                        'class' => 'form-control',
+                        'maxlength' => 5,
+                    ]) !!}
+                </div>
+            </div>
+
+            <div class="form-group row">
                 {!! Form::label('member-phone', 'Phone', [
                     'class' => 'control-label col-sm-3',
                 ]) !!}
@@ -113,6 +127,19 @@ use App\Common;
             <div class="col-sm-9">
                 {!! Form::file('image', array('class' => 'image')) !!}
              </div>
+            </div>
+
+             <div class="form-group row">
+                {!! Form::label('member-city', 'City', [
+                    'class' => 'control-label col-sm-3',
+                ]) !!}
+
+                <div class="col-sm-9">
+                    {!! Form::text('city', null, [
+                        'id' => 'member-city',
+                        'class' => 'form-control',
+                    ]) !!}
+                </div>
             </div>
 
             <div class="form-group row">

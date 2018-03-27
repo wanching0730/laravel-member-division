@@ -12,6 +12,8 @@ class Member extends Model
         'name', 
         'gender', 
         'address',
+        'postcode',
+        'city',
         'state',
         'phone', 
         'image',

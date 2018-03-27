@@ -38,3 +38,11 @@ Route::get('/member/edit/{id}', 'MemberController@edit')->name('member.edit');
 Route::post('/member/update/{id}', 'MemberController@update')->name('member.update');
 Route::delete('member/{id}', 'MemberController@destroy')->name('member.destroy');
 Route::get('member/{id}/image', 'MemberController@image');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
