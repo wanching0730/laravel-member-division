@@ -39,9 +39,9 @@ Route::get('/home', 'DivisionController@index')->name('home');
 // Route::delete('member/{id}', 'MemberController@destroy')->name('member.destroy');
 // Route::get('member/{id}/image', 'MemberController@image');
 
-Route::resource('/division', 'DivisionController', ['except' => ['destroy',]]);
-Route::resource('/member', 'MemberController', ['except' => ['destroy',]]);
-Route::resource('/group', 'GroupController', ['except' => ['destroy',]]);
+Route::resource('/division', 'DivisionController');
+Route::resource('/member', 'MemberController');
+Route::resource('/group', 'GroupController');
 
 Auth::routes();
 

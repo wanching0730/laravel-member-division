@@ -106,4 +106,18 @@ class MemberController extends Controller
         return $response;
 
     }
+
+    public function addMemberToGroup($group_id) {
+        $group = App\Member::find($group_id);
+        $group->members()->attach($member_id);
+    }
+
+    public function detachOneMember($member_id) {
+        $group->members()->detach($member_id);
+    }
+
+    public function detachAllMembers() {
+        $group->members()->detach();
+    }
+
 }
